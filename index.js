@@ -25,5 +25,5 @@ async function createCourse(){
   const result = await course.save();
   console.log(result);
 }
-//using promices
+//using promices //
 createCourse();
