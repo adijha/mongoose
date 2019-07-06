@@ -1,5 +1,4 @@
 require("dotenv").config();
-
 const mongoose = require("mongoose");
  
 mongoose.connect(process.env.mongoURI, { useNewUrlParser: true })
@@ -18,13 +17,13 @@ const Course = mongoose.model('Course', courseSchema);
 
 async function createCourse(){
   const course = new Course({
-    name: 'Node Course',
+    name: 'React Course',
     author: 'mosh',
-    tags: ['node','backend'],
+    tags: ['React','FrontEnd'],
     ispublished: true
   });
   const result = await course.save();
   console.log(result);
 }
-
+//using promices
 createCourse();
