@@ -29,15 +29,15 @@ async function createCourse(){
 // createCourse();
 
 //quering to the database
-async function getCourses(){
-  const courses = await Course
-    .find({author: 'mosh', isPublshed: true})
-    .limit(10)
-    .sort({name: 1})
-    .select({ name: 1, tags:1});
-  console.log(courses);
-}
-getCourses();
+// async function getCourses(){
+//   const courses = await Course
+//     .find({author: 'mosh', isPublshed: true})
+//     .limit(10)
+//     .sort({name: 1})
+//     .select({ name: 1, tags:1});
+//   console.log(courses);
+// }
+// getCourses();
 
 //applying FILTERS through mongoDB operator
 // eq equal
@@ -62,3 +62,22 @@ getCourses();
   // .find()
   // .or([{author: 'mosh'},{isPublshed: true}])
   // .and([])
+
+
+//REGULAR expression
+// syntax: /pattern/
+
+async function getCourses(){
+  const courses = await Course
+    //starts with mosh
+    .find({author: /^mosh/})
+    //ends with mosh
+    .find({author: /hamendani$/i})
+    //contains mosh
+    .find({author: /.*mosh.*/i})
+    .limit(10)
+    .sort({name: 1})
+    .select({ name: 1, tags:1});
+  console.log(courses);
+}
+getCourses();
