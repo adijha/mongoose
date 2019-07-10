@@ -39,4 +39,20 @@ async function getCourses(){
 }
 getCourses();
 
+//applying FILTERS through mongoDB operator
+// eq equal
+// ne not equal
+// gt greater than
+// gte greater than or equal to
+// lt less than
+// lte less than or equal to 
+// in 
+// nin not in 
 
+// async function getCourses(){
+//   const courses = await Course
+//     .find({price : {$gte : 10, $lte: 20}})
+//     .find({price: { $in:[10,15,20]}})
+//   console.log(courses);
+// }
+// getCourses();
