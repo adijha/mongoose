@@ -56,3 +56,9 @@ getCourses();
 //   console.log(courses);
 // }
 // getCourses();
+
+
+//and & or logical operators
+  // .find()
+  // .or([{author: 'mosh'},{isPublshed: true}])
+  // .and([])
