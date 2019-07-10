@@ -77,7 +77,28 @@ async function getCourses(){
     .find({author: /.*mosh.*/i})
     .limit(10)
     .sort({name: 1})
-    .select({ name: 1, tags:1});
+    .select({ name: 1, tags:1}); //count()
   console.log(courses);
 }
 getCourses();
+
+//pagination
+async function getCourses(){
+  const pageNumber = 2;
+  const pageSize = 10;
+
+  const courses = await Course
+    //starts with mosh
+    .find({author: /^mosh/})
+    //ends with mosh
+    .find({author: /hamendani$/i})
+    //contains mosh
+    .find({author: /.*mosh.*/i})
+    .skip((pageNumber-1) * pageSize)
+
+    .limit(pageSize)
+    .sort({name: 1})
+    .select({ name: 1, tags:1}); //count()
+  console.log(courses);
+}
+getCourses();``
